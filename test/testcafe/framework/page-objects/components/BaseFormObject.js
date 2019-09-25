@@ -49,11 +49,11 @@ export default class BaseFormObject {
   }
 
   hasTextBoxError(name) {
-    return this.form.find(`.o-form-input-name-${name}.o-form-has-errors`).exists;
+    return this.form.find(`input[name="${name}"]`).exists;
   }
 
   hasTextBoxErrorMessage(name) {
-    return this.form.find(`.o-form-input-name-${name} + .o-form-input-error`).exists;
+    return this.form.find(`input[name="${name}"]`).parent().sibling('.o-form-input-error').exists;
   }
 
   async waitForTextBoxError(name) {
